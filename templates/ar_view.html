@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>AR Evolution: {{ animal.name }}</title>
+    <!-- A-Frame and AR.js CDN dependencies -->
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+    
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Heads Up Display (HUD) styles */
+        #hud {
+            position: fixed;
+            bottom: 24px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 450px;
+            background: rgba(13, 18, 20, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 24px;
+            color: #fff;
+            padding: 1.5rem;
+            z-index: 1000;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .hud-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .hud-title {
+            margin: 0;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #00d2ff;
+        }
+
+        .hud-period {
+            background: rgba(0, 210, 255, 0.15);
+            color: #00d2ff;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+            border: 1px solid rgba(0, 210, 255, 0.2);
+        }
+
+        .hud-details {
+            font-size: 0.9rem;
+            color: #ced6e0;
+            line-height: 1.5;
+            font-weight: 300;
+            margin: 0;
+            min-height: 54px;
+        }
+
+        .hud-controls {
+            display: flex;
+            gap: 10px;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 0.8rem;
+        }
+
+        .hud-btn {
+            background: linear-gradient(90deg, #00d2ff 0%, #7928ca 100%);
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .hud-btn:active {
+            transform: scale(0.95);
+        }
+
+        .hud-steps {
+            font-size: 0.8rem;
+            color: #a4b0be;
+        }
+
+        /* Marker Help overlay */
+        #marker-help {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+            padding: 8px 16px;
+            border-radius: 20px;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: 500;
+            pointer-events: none;
+            z-index: 1000;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <!-- Floating Instruction Banner -->
+    <div id="marker-help">Point camera at Hiro marker</div>
+
+    <!-- Floating Mobile User Interface HUD -->
+    <div id="hud">
+        <div class="hud-header">
+            <h2 id="stage-name" class="hud-title">Loading...</h2>
+            <span id="stage-period" class="hud-period">...</span>
+        </div>
+        <p id="stage-details" class="hud-details">Initializing evolutionary sequence...</p>
+        <div class="hud-controls">
+            <span id="step-indicator" class="hud-steps">Stage 1 of 3</span>
+            <button id="next-btn" class="hud-btn" onclick="nextStage()">Next Stage ➔</button>
+        </div>
+    </div>
+
+    <!-- AR Scene Container -->
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false; trackingMethod: best;" vr-mode-ui="enabled: false">
+        
+        <!-- Standard Hiro Marker Tracker -->
+        <a-marker preset="hiro" id="hiro-marker">
+            
+            <!-- Root Entity for evolution representation -->
+            <a-entity id="ar-entity-root" 
+                      position="0 0.5 0" 
+                      animation="property: rotation; to: 0 360 0; loop: true; dur: 12000; easing: linear">
+                <!-- Inner geometric shape will be dynamically injected here -->
+            </a-entity>
+
+            <!-- Grid Helper for marker boundaries -->
+            <a-grid position="0 0 0" scale="0.2 0.2 0.2" color="#00d2ff" opacity="0.3"></a-grid>
+            
+        </a-marker>
+        
+        <!-- Scene Camera -->
+        <a-entity camera></a-entity>
+    </a-scene>
+
+    <script>
+        // Data injected from flask backend
+        const stages = {{ animal.stages|tojson }};
+        let currentStageIndex = 0;
+
+        const stageNameEl = document.getElementById('stage-name');
+        const stagePeriodEl = document.getElementById('stage-period');
+        const stageDetailsEl = document.getElementById('stage-details');
+        const stepIndicatorEl = document.getElementById('step-indicator');
+        const entityRootEl = document.getElementById('ar-entity-root');
+
+        // Function to update both HUD UI and the AR Entity inside the scene
+        function renderStage(index) {
+            const stage = stages[index];
+            
+            // 1. Update HUD text values
+            stageNameEl.textContent = stage.name;
+            stagePeriodEl.textContent = stage.period;
+            stageDetailsEl.textContent = stage.details;
+            stepIndicatorEl.textContent = `Stage ${index + 1} of ${stages.length}`;
+            
+            // 2. Clear old 3D element in root entity
+            while (entityRootEl.firstChild) {
+                entityRootEl.removeChild(entityRootEl.firstChild);
+            }
+            
+            // 3. Create new A-Frame entity representing the animal shape
+            const newEntity = document.createElement(`a-${stage.ar_shape}`);
+            newEntity.setAttribute('color', stage.ar_color);
+            newEntity.setAttribute('scale', stage.ar_scale);
+            newEntity.setAttribute('material', 'roughness: 0.3; metalness: 0.1; flatShading: false');
+            
+            // Add visual wireframe grid to give elements a holographic AR feel
+            newEntity.setAttribute('wireframe', 'false');
+            
+            // Append child into A-Frame DOM
+            entityRootEl.appendChild(newEntity);
+        }
+
+        function nextStage() {
+            currentStageIndex = (currentStageIndex + 1) % stages.length;
+            renderStage(currentStageIndex);
+        }
+
+        // Initialize first stage
+        window.addEventListener('load', () => {
+            if (stages && stages.length > 0) {
+                renderStage(0);
+            } else {
+                stageNameEl.textContent = "Error";
+                stageDetailsEl.textContent = "No evolution stages found for this animal.";
+            }
+        });
+    </script>
+</body>
+</html>

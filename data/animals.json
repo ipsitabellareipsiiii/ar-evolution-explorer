@@ -1,0 +1,95 @@
+{
+  "t-rex": {
+    "name": "Tyrannosaurus Rex",
+    "scientific_name": "Tyrannosaurus rex",
+    "description": "Witness the transition of the apex predator from small coelurosaurian ancestors to the giant hunter of the Late Cretaceous.",
+    "stages": [
+      {
+        "name": "Coelophysis",
+        "period": "Late Triassic (210 Mya)",
+        "details": "A small, agile, bipedal carnivore, about 3 meters long. The structural foundation of theropods.",
+        "ar_color": "#ff4757",
+        "ar_shape": "box",
+        "ar_scale": "0.3 0.3 0.8"
+      },
+      {
+        "name": "Dilophosaurus",
+        "period": "Early Jurassic (193 Mya)",
+        "details": "Larger body size (6 meters), featuring double head crests. Representing mid-size predator evolution.",
+        "ar_color": "#ffa502",
+        "ar_shape": "cylinder",
+        "ar_scale": "0.4 0.8 0.4"
+      },
+      {
+        "name": "Tyrannosaurus Rex",
+        "period": "Late Cretaceous (66 Mya)",
+        "details": "The ultimate apex predator. Massive skull, crushing jaw force, and highly reduced arms.",
+        "ar_color": "#2ed573",
+        "ar_shape": "sphere",
+        "ar_scale": "0.6 0.6 0.6"
+      }
+    ]
+  },
+  "whale": {
+    "name": "Whale",
+    "scientific_name": "Cetacea",
+    "description": "Trace the remarkable 50-million-year transition of whales from land-dwelling hoofed mammals to marine giants.",
+    "stages": [
+      {
+        "name": "Pakicetus",
+        "period": "Early Eocene (50 Mya)",
+        "details": "A four-legged, dog-sized land mammal that hunted fish in shallow rivers.",
+        "ar_color": "#eccc68",
+        "ar_shape": "box",
+        "ar_scale": "0.4 0.3 0.6"
+      },
+      {
+        "name": "Ambulocetus",
+        "period": "Middle Eocene (48 Mya)",
+        "details": "The 'walking whale'. Had webbed feet, lived a semi-aquatic lifestyle similar to a crocodile.",
+        "ar_color": "#70a1ff",
+        "ar_shape": "cylinder",
+        "ar_scale": "0.4 0.3 0.9"
+      },
+      {
+        "name": "Basilosaurus",
+        "period": "Late Eocene (37 Mya)",
+        "details": "Fully aquatic, eel-like body structure (18m long) with vestigial hind limbs.",
+        "ar_color": "#1e90ff",
+        "ar_shape": "torus",
+        "ar_scale": "0.5 0.2 0.8"
+      }
+    ]
+  },
+  "horse": {
+    "name": "Horse",
+    "scientific_name": "Equus caballus",
+    "description": "Observe the adaptational journey of horses from small, multi-toed forest dwellers to single-toed grassland runners.",
+    "stages": [
+      {
+        "name": "Eohippus",
+        "period": "Early Eocene (55 Mya)",
+        "details": "A tiny, dog-sized forest browser with four toes on the front feet and three on the hind.",
+        "ar_color": "#a4b0be",
+        "ar_shape": "box",
+        "ar_scale": "0.2 0.2 0.4"
+      },
+      {
+        "name": "Merychippus",
+        "period": "Miocene (15 Mya)",
+        "details": "Larger three-toed herbivore adapted to grasslands. Longer legs and high-crowned teeth for grazing.",
+        "ar_color": "#d2dae2",
+        "ar_shape": "cylinder",
+        "ar_scale": "0.3 0.6 0.3"
+      },
+      {
+        "name": "Equus",
+        "period": "Pleistocene to Present (4 Mya)",
+        "details": "The modern horse. A single hoofed toe for high-speed running on open plains.",
+        "ar_color": "#747d8c",
+        "ar_shape": "sphere",
+        "ar_scale": "0.5 0.5 0.5"
+      }
+    ]
+  }
+}
