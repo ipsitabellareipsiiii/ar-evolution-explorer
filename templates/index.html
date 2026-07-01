@@ -183,11 +183,11 @@
         
         .qr-content {
             background: #151d20;
-            padding: 3rem;
+            padding: 2.5rem;
             border-radius: 28px;
             text-align: center;
-            max-width: 440px;
-            width: 90%;
+            max-width: 680px;
+            width: 95%;
             border: 1px solid rgba(255, 255, 255, 0.1);
             box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
             transform: scale(0.9);
@@ -202,28 +202,58 @@
             font-size: 1.8rem;
             font-weight: 700;
             color: #fff;
+            margin-bottom: 1.5rem;
+        }
+
+        .qr-columns {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            align-items: stretch;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .qr-column {
+            flex: 1;
+            min-width: 240px;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .qr-column h4 {
+            font-size: 0.95rem;
+            color: #00d2ff;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .qr-content .qr-wrapper, .qr-content .marker-wrapper {
+            background: white;
+            padding: 1rem;
+            border-radius: 16px;
+            display: inline-block;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             margin-bottom: 0.5rem;
         }
         
-        .qr-content .qr-wrapper {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 20px;
-            display: inline-block;
-            margin: 2rem 0;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-        }
-        
         .qr-content img {
-            max-width: 200px;
+            max-width: 160px;
             display: block;
         }
         
         .qr-content p {
             color: #a4b0be;
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             line-height: 1.5;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             font-weight: 300;
         }
         
@@ -344,10 +374,21 @@
     <div class="qr-modal" id="qrModal">
         <div class="qr-content">
             <h2 id="qrTitle">QR Code</h2>
-            <div class="qr-wrapper">
-                <img id="qrImage" src="" alt="AR QR Code">
+            <div class="qr-columns">
+                <div class="qr-column">
+                    <h4>1. Scan with Phone</h4>
+                    <div class="qr-wrapper">
+                        <img id="qrImage" src="" alt="AR QR Code">
+                    </div>
+                </div>
+                <div class="qr-column">
+                    <h4>2. Point Camera Here</h4>
+                    <div class="marker-wrapper">
+                        <img src="https://raw.githubusercontent.com/AR-js-org/AR.js/master/data/images/HIRO.jpg" alt="Hiro Marker">
+                    </div>
+                </div>
             </div>
-            <p id="qrInstructions">Scan this QR code with your phone camera to view the evolutionary timeline in AR.</p>
+            <p id="qrInstructions">Scan the QR code to open the AR experience on your phone, then point your phone camera at the Hiro marker on the right.</p>
             <button class="close-btn" onclick="closeModal()">Close</button>
         </div>
     </div>
