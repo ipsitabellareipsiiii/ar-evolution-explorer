@@ -97,7 +97,11 @@
         "ar_color": "#747d8c",
         "ar_shape": "sphere",
         "ar_scale": "0.5 0.5 0.5",
-        "ar_image": "/static/images/horse-stage3.jpg"
+        "ar_image": "/static/images/horse-stage3.jpg",
+        "ar_model": "/static/models/elephant_animation_idle.glb",
+        "ar_model_scale": "0.5 0.5 0.5",
+        "ar_model_position": "0 0 0",
+        "ar_model_rotation": "0 0 0"
       }
     ]
   }
