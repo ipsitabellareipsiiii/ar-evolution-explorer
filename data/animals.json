@@ -7,18 +7,20 @@
       {
         "name": "Coelophysis",
         "period": "Late Triassic (210 Mya)",
-        "details": "A small, agile, bipedal carnivore, about 3 meters long. The structural foundation of theropods.",
+        "details": "A small, agile, bipedal carnivore. The structural foundation of all theropod dinosaurs.",
         "ar_color": "#ff4757",
         "ar_shape": "box",
-        "ar_scale": "0.3 0.3 0.8"
+        "ar_scale": "0.3 0.3 0.8",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coelophysis_restoration.jpg/640px-Coelophysis_restoration.jpg"
       },
       {
         "name": "Dilophosaurus",
         "period": "Early Jurassic (193 Mya)",
-        "details": "Larger body size (6 meters), featuring double head crests. Representing mid-size predator evolution.",
+        "details": "A larger bipedal predator featuring double head crests, representing the evolutionary step to mid-sized hunters.",
         "ar_color": "#ffa502",
         "ar_shape": "cylinder",
-        "ar_scale": "0.4 0.8 0.4"
+        "ar_scale": "0.4 0.8 0.4",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dilophosaurus_restoration.jpg/640px-Dilophosaurus_restoration.jpg"
       },
       {
         "name": "Tyrannosaurus Rex",
@@ -26,7 +28,8 @@
         "details": "The ultimate apex predator. Massive skull, crushing jaw force, and highly reduced arms.",
         "ar_color": "#2ed573",
         "ar_shape": "sphere",
-        "ar_scale": "0.6 0.6 0.6"
+        "ar_scale": "0.6 0.6 0.6",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tyrannosaurus_Rex_Systematic_Reconstruction.png/640px-Tyrannosaurus_Rex_Systematic_Reconstruction.png"
       }
     ]
   },
@@ -38,18 +41,20 @@
       {
         "name": "Pakicetus",
         "period": "Early Eocene (50 Mya)",
-        "details": "A four-legged, dog-sized land mammal that hunted fish in shallow rivers.",
+        "details": "A four-legged, land-dwelling mammal that hunted fish in shallow rivers. Found in modern-day Pakistan.",
         "ar_color": "#eccc68",
         "ar_shape": "box",
-        "ar_scale": "0.4 0.3 0.6"
+        "ar_scale": "0.4 0.3 0.6",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pakicetus_inachus.jpg/640px-Pakicetus_inachus.jpg"
       },
       {
         "name": "Ambulocetus",
         "period": "Middle Eocene (48 Mya)",
-        "details": "The 'walking whale'. Had webbed feet, lived a semi-aquatic lifestyle similar to a crocodile.",
+        "details": "The 'walking whale'. Had webbed feet, lived a semi-aquatic lifestyle similar to modern crocodiles.",
         "ar_color": "#70a1ff",
         "ar_shape": "cylinder",
-        "ar_scale": "0.4 0.3 0.9"
+        "ar_scale": "0.4 0.3 0.9",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ambulocetus_restoration.jpg/640px-Ambulocetus_restoration.jpg"
       },
       {
         "name": "Basilosaurus",
@@ -57,7 +62,8 @@
         "details": "Fully aquatic, eel-like body structure (18m long) with vestigial hind limbs.",
         "ar_color": "#1e90ff",
         "ar_shape": "torus",
-        "ar_scale": "0.5 0.2 0.8"
+        "ar_scale": "0.5 0.2 0.8",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Basilosaurus_restoration.jpg/640px-Basilosaurus_restoration.jpg"
       }
     ]
   },
@@ -72,7 +78,8 @@
         "details": "A tiny, dog-sized forest browser with four toes on the front feet and three on the hind.",
         "ar_color": "#a4b0be",
         "ar_shape": "box",
-        "ar_scale": "0.2 0.2 0.4"
+        "ar_scale": "0.2 0.2 0.4",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Hyracotherium_restoration.jpg/640px-Hyracotherium_restoration.jpg"
       },
       {
         "name": "Merychippus",
@@ -80,7 +87,8 @@
         "details": "Larger three-toed herbivore adapted to grasslands. Longer legs and high-crowned teeth for grazing.",
         "ar_color": "#d2dae2",
         "ar_shape": "cylinder",
-        "ar_scale": "0.3 0.6 0.3"
+        "ar_scale": "0.3 0.6 0.3",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Merychippus_restoration.jpg/640px-Merychippus_restoration.jpg"
       },
       {
         "name": "Equus",
@@ -88,7 +96,8 @@
         "details": "The modern horse. A single hoofed toe for high-speed running on open plains.",
         "ar_color": "#747d8c",
         "ar_shape": "sphere",
-        "ar_scale": "0.5 0.5 0.5"
+        "ar_scale": "0.5 0.5 0.5",
+        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nokota_Horse_Profile.jpg/640px-Nokota_Horse_Profile.jpg"
       }
     ]
   }

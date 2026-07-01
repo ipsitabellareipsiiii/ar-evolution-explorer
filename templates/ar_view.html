@@ -185,17 +185,24 @@
                 entityRootEl.removeChild(entityRootEl.firstChild);
             }
             
-            // 3. Create new A-Frame entity representing the animal shape
-            const newEntity = document.createElement(`a-${stage.ar_shape}`);
-            newEntity.setAttribute('color', stage.ar_color);
-            newEntity.setAttribute('scale', stage.ar_scale);
-            newEntity.setAttribute('material', 'roughness: 0.3; metalness: 0.1; flatShading: false');
-            
-            // Add visual wireframe grid to give elements a holographic AR feel
-            newEntity.setAttribute('wireframe', 'false');
-            
-            // Append child into A-Frame DOM
-            entityRootEl.appendChild(newEntity);
+            // 3. Create new A-Frame entity (Image Card or 3D Primitive fallback)
+            if (stage.ar_image) {
+                const newEntity = document.createElement('a-image');
+                newEntity.setAttribute('src', stage.ar_image);
+                newEntity.setAttribute('width', '2.2');
+                newEntity.setAttribute('height', '1.6');
+                newEntity.setAttribute('position', '0 0.8 0');
+                // Make the image card viewable from both front and back
+                newEntity.setAttribute('material', 'side: double; transparent: true; opacity: 0.95');
+                entityRootEl.appendChild(newEntity);
+            } else {
+                const newEntity = document.createElement(`a-${stage.ar_shape}`);
+                newEntity.setAttribute('color', stage.ar_color);
+                newEntity.setAttribute('scale', stage.ar_scale);
+                newEntity.setAttribute('material', 'roughness: 0.3; metalness: 0.1; flatShading: false');
+                newEntity.setAttribute('wireframe', 'false');
+                entityRootEl.appendChild(newEntity);
+            }
         }
 
         function nextStage() {
