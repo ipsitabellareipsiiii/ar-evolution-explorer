@@ -11,7 +11,7 @@
         "ar_color": "#ff4757",
         "ar_shape": "box",
         "ar_scale": "0.3 0.3 0.8",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coelophysis_restoration.jpg/640px-Coelophysis_restoration.jpg"
+        "ar_image": "/static/images/t-rex-stage1.jpg"
       },
       {
         "name": "Dilophosaurus",
@@ -20,7 +20,7 @@
         "ar_color": "#ffa502",
         "ar_shape": "cylinder",
         "ar_scale": "0.4 0.8 0.4",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dilophosaurus_restoration.jpg/640px-Dilophosaurus_restoration.jpg"
+        "ar_image": "/static/images/t-rex-stage2.jpg"
       },
       {
         "name": "Tyrannosaurus Rex",
@@ -29,7 +29,7 @@
         "ar_color": "#2ed573",
         "ar_shape": "sphere",
         "ar_scale": "0.6 0.6 0.6",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tyrannosaurus_Rex_Systematic_Reconstruction.png/640px-Tyrannosaurus_Rex_Systematic_Reconstruction.png"
+        "ar_image": "/static/images/t-rex-stage3.jpg"
       }
     ]
   },
@@ -45,7 +45,7 @@
         "ar_color": "#eccc68",
         "ar_shape": "box",
         "ar_scale": "0.4 0.3 0.6",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pakicetus_inachus.jpg/640px-Pakicetus_inachus.jpg"
+        "ar_image": "/static/images/whale-stage1.jpg"
       },
       {
         "name": "Ambulocetus",
@@ -54,7 +54,7 @@
         "ar_color": "#70a1ff",
         "ar_shape": "cylinder",
         "ar_scale": "0.4 0.3 0.9",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ambulocetus_restoration.jpg/640px-Ambulocetus_restoration.jpg"
+        "ar_image": "/static/images/whale-stage2.jpg"
       },
       {
         "name": "Basilosaurus",
@@ -63,7 +63,7 @@
         "ar_color": "#1e90ff",
         "ar_shape": "torus",
         "ar_scale": "0.5 0.2 0.8",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Basilosaurus_restoration.jpg/640px-Basilosaurus_restoration.jpg"
+        "ar_image": "/static/images/whale-stage3.jpg"
       }
     ]
   },
@@ -79,7 +79,7 @@
         "ar_color": "#a4b0be",
         "ar_shape": "box",
         "ar_scale": "0.2 0.2 0.4",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Hyracotherium_restoration.jpg/640px-Hyracotherium_restoration.jpg"
+        "ar_image": "/static/images/horse-stage1.jpg"
       },
       {
         "name": "Merychippus",
@@ -88,7 +88,7 @@
         "ar_color": "#d2dae2",
         "ar_shape": "cylinder",
         "ar_scale": "0.3 0.6 0.3",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Merychippus_restoration.jpg/640px-Merychippus_restoration.jpg"
+        "ar_image": "/static/images/horse-stage2.jpg"
       },
       {
         "name": "Equus",
@@ -97,7 +97,7 @@
         "ar_color": "#747d8c",
         "ar_shape": "sphere",
         "ar_scale": "0.5 0.5 0.5",
-        "ar_image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nokota_Horse_Profile.jpg/640px-Nokota_Horse_Profile.jpg"
+        "ar_image": "/static/images/horse-stage3.jpg"
       }
     ]
   }

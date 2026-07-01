@@ -3,9 +3,47 @@ import io
 import socket
 import base64
 import json
+import urllib.request
 from flask import Flask, render_template, request, jsonify
 import qrcode
+
 app = Flask(__name__)
+
+# Asset download map to prevent CORS errors on WebGL client side
+ASSETS_TO_DOWNLOAD = {
+    "t-rex-stage1.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Coelophysis_restoration.jpg/640px-Coelophysis_restoration.jpg",
+    "t-rex-stage2.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Dilophosaurus_restoration.jpg/640px-Dilophosaurus_restoration.jpg",
+    "t-rex-stage3.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Tyrannosaurus_Rex_Systematic_Reconstruction.png/640px-Tyrannosaurus_Rex_Systematic_Reconstruction.png",
+    "whale-stage1.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Pakicetus_inachus.jpg/640px-Pakicetus_inachus.jpg",
+    "whale-stage2.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Ambulocetus_restoration.jpg/640px-Ambulocetus_restoration.jpg",
+    "whale-stage3.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Basilosaurus_restoration.jpg/640px-Basilosaurus_restoration.jpg",
+    "horse-stage1.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Hyracotherium_restoration.jpg/640px-Hyracotherium_restoration.jpg",
+    "horse-stage2.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Merychippus_restoration.jpg/640px-Merychippus_restoration.jpg",
+    "horse-stage3.jpg": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Nokota_Horse_Profile.jpg/640px-Nokota_Horse_Profile.jpg"
+}
+
+def download_assets():
+    images_dir = os.path.join(os.path.dirname(__file__), 'static', 'images')
+    os.makedirs(images_dir, exist_ok=True)
+    
+    for filename, url in ASSETS_TO_DOWNLOAD.items():
+        filepath = os.path.join(images_dir, filename)
+        if not os.path.exists(filepath):
+            try:
+                print(f"[Boot Downloader] Fetching: {url} -> {filepath}")
+                req = urllib.request.Request(
+                    url,
+                    headers={'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)'}
+                )
+                with urllib.request.urlopen(req) as response:
+                    with open(filepath, 'wb') as f:
+                        f.write(response.read())
+            except Exception as e:
+                print(f"[Boot Downloader Error] Failed to download {url}: {e}")
+
+# Run downloader on initialization so it triggers on web container startup
+download_assets()
+
 # Load animal evolution datasets
 def load_animals():
     data_path = os.path.join(os.path.dirname(__file__), 'data', 'animals.json')
